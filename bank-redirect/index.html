@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open Money Manager</title>
+  </head>
+  <body>
+    <h1>Return to Money Manager</h1>
+    <p>Open the app to finish connecting your bank.</p>
+    <button type="button" id="open">Open Money Manager</button>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const allowed = new URLSearchParams();
+      for (const key of ["code", "state", "error", "error_description"]) {
+        if (params.has(key)) allowed.set(key, params.get(key));
+      }
+      const query = allowed.toString();
+      const suffix = query ? `?${query}` : "";
+      const android = /Android/i.test(navigator.userAgent);
+      const target = android
+        ? `intent://bank/callback${suffix}#Intent;scheme=moneymanager;package=com.pedroseixas.moneymanager;end`
+        : `moneymanager://bank/callback${suffix}`;
+      const open = () => location.assign(target);
+      document.getElementById("open").addEventListener("click", open);
+      open();
+    </script>
+  </body>
+</html>

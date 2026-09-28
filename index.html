@@ -3,27 +3,63 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Open Money Manager</title>
+    <title>Money Manager</title>
+    <meta
+      name="description"
+      content="A friendly money manager that keeps your finances on your phone."
+    />
+    <link rel="icon" href="icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Return to Money Manager</h1>
-    <p>Open the app to finish connecting your bank.</p>
-    <button type="button" id="open">Open Money Manager</button>
-    <script>
-      const params = new URLSearchParams(location.search);
-      const allowed = new URLSearchParams();
-      for (const key of ["code", "state", "error", "error_description"]) {
-        if (params.has(key)) allowed.set(key, params.get(key));
-      }
-      const query = allowed.toString();
-      const suffix = query ? `?${query}` : "";
-      const android = /Android/i.test(navigator.userAgent);
-      const target = android
-        ? `intent://bank/callback${suffix}#Intent;scheme=moneymanager;package=com.pedroseixas.moneymanager;end`
-        : `moneymanager://bank/callback${suffix}`;
-      const open = () => location.assign(target);
-      document.getElementById("open").addEventListener("click", open);
-      open();
-    </script>
+    <main>
+      <a class="brand" href="./"><img src="icon.png" alt="" />Money Manager</a>
+
+      <h1>Your money, on your phone. Nowhere else.</h1>
+      <p class="lead">
+        Track accounts, spending and investments in a calm, colourful app. There
+        is no account to create and no server of ours: your records live on your
+        phone.
+      </p>
+      <span class="pill">Coming soon to Google Play and the App Store</span>
+
+      <ul class="features">
+        <li style="--dot: var(--primary)">
+          <strong>Private by design</strong>
+          <p>Everything is stored on the phone. We never see your data.</p>
+        </li>
+        <li style="--dot: var(--blue)">
+          <strong>Bank sync</strong>
+          <p>
+            Connect your banks through Enable Banking with your own credentials.
+          </p>
+        </li>
+        <li style="--dot: var(--amber)">
+          <strong>Payments captured for you</strong>
+          <p>
+            On Android, card payments from your wallet app turn into records
+            ready to review.
+          </p>
+        </li>
+        <li style="--dot: var(--expense)">
+          <strong>Encrypted backups</strong>
+          <p>
+            Daily backups to your own Google Drive, encrypted on the phone with
+            a passphrase only you know.
+          </p>
+        </li>
+      </ul>
+
+      <footer>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="mailto:pjfseixas.17@gmail.com">Contact</a>
+      </footer>
+    </main>
   </body>
 </html>
