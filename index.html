@@ -220,15 +220,6 @@
       <symbol id="i-cloud" viewBox="0 0 24 24">
         <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
       </symbol>
-      <symbol id="i-wifi-off" viewBox="0 0 24 24">
-        <path d="M12 20h.01" />
-        <path d="M8.5 16.429a5 5 0 0 1 7 0" />
-        <path d="M5 12.859a10 10 0 0 1 5.17-2.69" />
-        <path d="M19 12.859a10 10 0 0 0-2.007-1.523" />
-        <path d="M2 8.82a15 15 0 0 1 4.177-2.643" />
-        <path d="M22 8.82a15 15 0 0 0-11.288-3.764" />
-        <path d="m2 2 20 20" />
-      </symbol>
       <symbol id="i-lock" viewBox="0 0 24 24">
         <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -318,13 +309,40 @@
         <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
         <path d="M2 12h20" />
       </symbol>
+      <symbol id="i-fingerprint-pattern" viewBox="0 0 24 24">
+        <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" />
+        <path d="M14 13.12c0 2.38 0 6.38-1 8.88" />
+        <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" />
+        <path d="M2 12a10 10 0 0 1 18-6" />
+        <path d="M2 16h.01" />
+        <path d="M21.8 16c.2-2 .131-5.354 0-6" />
+        <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" />
+        <path d="M8.65 22c.21-.66.45-1.32.57-2" />
+        <path d="M9 6.8a6 6 0 0 1 9 5.2v2" />
+      </symbol>
+      <symbol id="i-key-round" viewBox="0 0 24 24">
+        <path
+          d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
+        />
+        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
+      </symbol>
+      <symbol id="i-apple" viewBox="0 0 24 24">
+        <path
+          d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+        />
+      </symbol>
+      <symbol id="i-googleplay" viewBox="0 0 24 24">
+        <path
+          d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"
+        />
+      </symbol>
     </svg>
 
     <header class="wrap topbar">
       <a class="brand" href="./"><img src="icon.png" alt="" />Money Manager</a>
       <nav aria-label="Main">
         <a class="hide-sm" href="#features">Features</a>
-        <a class="hide-sm" href="#privacy">Privacy</a>
+        <a class="hide-sm" href="#security">Security</a>
         <span class="soon">Coming soon</span>
       </nav>
     </header>
@@ -338,16 +356,34 @@
           <p class="lead">
             A calm, colourful money manager for your accounts, spending,
             investments and debts. No sign-up and no server of ours: your
-            records live on your phone and work without a connection.
+            records stay on your phone, behind your fingerprint or Face ID.
           </p>
           <div class="stores" aria-label="App stores">
             <span class="store"
-              ><small>Coming soon to</small><b>Google Play</b></span
+              ><svg class="logo" aria-hidden="true">
+                <use href="#i-googleplay" /></svg
+              ><span
+                ><small>Coming soon to</small><b>Google Play</b></span
+              ></span
             >
             <span class="store"
-              ><small>Coming soon to</small><b>App Store</b></span
+              ><svg class="logo" aria-hidden="true"><use href="#i-apple" /></svg
+              ><span><small>Coming soon to</small><b>App Store</b></span></span
             >
           </div>
+          <ul class="trust">
+            <li>
+              <svg class="i"><use href="#i-smartphone" /></svg>Stored only on
+              your phone
+            </li>
+            <li>
+              <svg class="i"><use href="#i-fingerprint-pattern" /></svg>Face ID
+              and fingerprint lock
+            </li>
+            <li>
+              <svg class="i"><use href="#i-lock" /></svg>Encrypted backups
+            </li>
+          </ul>
         </div>
 
         <div class="hero-visual">
@@ -513,6 +549,121 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="privacy" id="security">
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <g transform="rotate(-90 50 50)">
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              style="--len: 143.6"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              stroke-dashoffset="-153.8"
+              style="--len: 70.2; --d: 150ms"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              stroke-dashoffset="-234.3"
+              style="--len: 57.4; --d: 300ms"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              stroke-dashoffset="-301.9"
+              style="--len: 47.9; --d: 450ms"
+            />
+          </g>
+        </svg>
+        <div class="wrap">
+          <h2 class="title reveal">
+            No account. No server of ours. Just your phone.
+          </h2>
+          <p class="lead reveal" style="--d: 100ms">
+            Security was the first decision, not a feature added later. Your
+            records stay on your phone and nobody else gets a copy, including
+            us. <a href="privacy.html">Read the privacy policy</a>
+          </p>
+          <ul class="facts">
+            <li class="reveal">
+              <h3>
+                <svg class="i"><use href="#i-smartphone" /></svg>Stays on your
+                phone
+              </h3>
+              <p>
+                No account and no server of ours. Everything is stored on the
+                phone and works in airplane mode.
+              </p>
+            </li>
+            <li class="reveal" style="--d: 100ms">
+              <h3>
+                <svg class="i"><use href="#i-fingerprint-pattern" /></svg>Locked
+                to you
+              </h3>
+              <p>
+                Open it with Face ID, Touch ID or your fingerprint. It locks
+                again after a minute away.
+              </p>
+            </li>
+            <li class="reveal">
+              <h3>
+                <svg class="i"><use href="#i-lock" /></svg>Encrypted backups
+              </h3>
+              <p>
+                Daily backups to your own Google Drive, sealed on the phone with
+                AES-256-GCM before upload. The key comes from a passphrase only
+                you know, so Google cannot read them.
+              </p>
+            </li>
+            <li class="reveal" style="--d: 100ms">
+              <h3>
+                <svg class="i"><use href="#i-key-round" /></svg>Keys in secure
+                storage
+              </h3>
+              <p>
+                Your bank key, AI key and backup passphrase live in the
+                phone&#8217;s Keychain or Keystore, on that phone only, and
+                never go into a backup.
+              </p>
+            </li>
+            <li class="reveal">
+              <h3>
+                <svg class="i"><use href="#i-eye-off" /></svg>Only what is
+                needed leaves
+              </h3>
+              <p>
+                AI suggestions see a merchant name and your category names.
+                Price lookups send a ticker. Drive access covers only the
+                app&#8217;s own files.
+              </p>
+            </li>
+            <li class="reveal" style="--d: 100ms">
+              <h3>
+                <svg class="i"><use href="#i-shield-check" /></svg>Nothing
+                collected
+              </h3>
+              <p>
+                No analytics, no ads, no tracking. We never see a single record.
+              </p>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -771,29 +922,52 @@
         <div class="copy reveal">
           <h2 class="title">Your banks, synced from your phone.</h2>
           <p>
-            Connect your banks through Enable Banking with credentials you
-            create. Transactions arrive on the phone and land in
-            <strong>one review inbox</strong>, next to captured payments and
-            refunds that still need to be matched to what they pay back.
+            Connect your bank through Enable Banking, with an application you
+            create yourself. It works with the main Portuguese banks, like Caixa
+            Geral de Depósitos, Millennium BCP, Santander Totta, Novo Banco, BPI
+            and Montepio.
+            <a
+              href="https://enablebanking.com/open-banking-apis?country=PT"
+              rel="noopener"
+              >See every supported bank</a
+            >
+          </p>
+          <p>
+            Transactions land in <strong>one review inbox</strong>, next to
+            captured payments and refunds that still need to be matched to what
+            they pay back.
           </p>
           <ul class="points">
             <li>
               <span class="glyph" style="--c: var(--ring-cyan)"
+                ><svg class="i"><use href="#i-refresh-cw" /></svg
+              ></span>
+              <span
+                ><b>Syncs on its own</b>New transactions come in about twice a
+                day in the background and whenever you open the app, so balances
+                stay current without importing anything. Your bank asks you to
+                confirm access every few months.</span
+              >
+            </li>
+            <li>
+              <span class="glyph" style="--c: var(--ring-green)"
+                ><svg class="i"><use href="#i-key-round" /></svg
+              ></span>
+              <span
+                ><b>Your bank key never leaves the phone</b>You log in on your
+                bank&#8217;s own app or site. The private key that reads your
+                accounts stays in the phone&#8217;s secure storage, so the login
+                is useless to anyone else.</span
+              >
+            </li>
+            <li>
+              <span class="glyph" style="--c: var(--ring-amber)"
                 ><svg class="i"><use href="#i-sparkles" /></svg
               ></span>
               <span
                 ><b>AI suggestions, with your own key</b>Pick Anthropic, OpenAI
                 or Google. Only the merchant name and your category names are
                 sent, never amounts or dates.</span
-              >
-            </li>
-            <li>
-              <span class="glyph" style="--c: var(--ring-amber)"
-                ><svg class="i"><use href="#i-hand-coins" /></svg
-              ></span>
-              <span
-                ><b>Paid back, not income</b>When a friend pays you back, the
-                expense shrinks to your share.</span
               >
             </li>
           </ul>
@@ -1302,99 +1476,6 @@
         </div>
       </section>
 
-      <section class="privacy" id="privacy">
-        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
-          <g transform="rotate(-90 50 50)">
-            <circle
-              cx="50"
-              cy="50"
-              r="28"
-              pathLength="360"
-              stroke="var(--band-ink)"
-              style="--len: 143.6"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="28"
-              pathLength="360"
-              stroke="var(--band-ink)"
-              stroke-dashoffset="-153.8"
-              style="--len: 70.2; --d: 150ms"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="28"
-              pathLength="360"
-              stroke="var(--band-ink)"
-              stroke-dashoffset="-234.3"
-              style="--len: 57.4; --d: 300ms"
-            />
-            <circle
-              cx="50"
-              cy="50"
-              r="28"
-              pathLength="360"
-              stroke="var(--band-ink)"
-              stroke-dashoffset="-301.9"
-              style="--len: 47.9; --d: 450ms"
-            />
-          </g>
-        </svg>
-        <div class="wrap">
-          <h2 class="title reveal">
-            No account. No server of ours. Just your phone.
-          </h2>
-          <p class="lead reveal" style="--d: 100ms">
-            There is nothing to sign up for. Everything you record is stored on
-            the phone, and nobody else gets a copy, including us.
-          </p>
-          <ul class="facts">
-            <li class="reveal">
-              <h3>
-                <svg class="i"><use href="#i-wifi-off" /></svg>Works offline
-              </h3>
-              <p>
-                Airplane mode changes nothing. Records, stats and backups to a
-                file all work without a connection.
-              </p>
-            </li>
-            <li class="reveal" style="--d: 100ms">
-              <h3>
-                <svg class="i"><use href="#i-lock" /></svg>Encrypted backups
-              </h3>
-              <p>
-                A daily backup to your own Google Drive, encrypted on the phone
-                with a passphrase only you know. Google cannot read it.
-              </p>
-            </li>
-            <li class="reveal">
-              <h3>
-                <svg class="i"><use href="#i-shield-check" /></svg>Nothing
-                collected
-              </h3>
-              <p>
-                No analytics, no ads, no tracking. Bank, AI and backup
-                connections use your own accounts and go straight from your
-                phone.
-              </p>
-            </li>
-            <li class="reveal" style="--d: 100ms">
-              <h3>
-                <svg class="i"><use href="#i-server" /></svg>Your own server, if
-                you want
-              </h3>
-              <p>
-                Run the optional service for a read-only view in the browser,
-                and an MCP server so your AI assistant can answer questions
-                about your money.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <section class="wrap details">
         <h2 class="title reveal" style="max-width: 18ch">
           And the small things that make it yours.
@@ -1457,6 +1538,30 @@
               screen.</span
             >
           </li>
+          <li class="reveal" style="--c: #f59e0b">
+            <svg class="i"><use href="#i-hand-coins" /></svg
+            ><b>Paid back, not income</b
+            ><span
+              >When a friend pays you back, the expense shrinks to your
+              share.</span
+            >
+          </li>
+          <li class="reveal" style="--c: #06b6d4">
+            <svg class="i"><use href="#i-server" /></svg
+            ><b>Ask your AI assistant</b
+            ><span
+              >Run the optional service for a read-only view in the browser and
+              an MCP server your assistant can read.</span
+            >
+          </li>
+          <li class="reveal" style="--c: #84cc16">
+            <svg class="i"><use href="#i-arrow-down" /></svg
+            ><b>Bring your history</b
+            ><span
+              >Import a file prepared on a computer from your old app&#8217;s
+              export.</span
+            >
+          </li>
         </ul>
       </section>
 
@@ -1471,10 +1576,13 @@
         </p>
         <div class="stores reveal" style="--d: 150ms" aria-label="App stores">
           <span class="store"
-            ><small>Coming soon to</small><b>Google Play</b></span
+            ><svg class="logo" aria-hidden="true">
+              <use href="#i-googleplay" /></svg
+            ><span><small>Coming soon to</small><b>Google Play</b></span></span
           >
           <span class="store"
-            ><small>Coming soon to</small><b>App Store</b></span
+            ><svg class="logo" aria-hidden="true"><use href="#i-apple" /></svg
+            ><span><small>Coming soon to</small><b>App Store</b></span></span
           >
         </div>
       </section>
