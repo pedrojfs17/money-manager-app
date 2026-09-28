@@ -6,60 +6,1502 @@
     <title>Money Manager</title>
     <meta
       name="description"
-      content="A friendly money manager that keeps your finances on your phone."
+      content="A calm, colourful money manager for accounts, spending, investments and debts. No sign-up and no server: your records live on your phone."
+    />
+    <meta property="og:title" content="Money Manager" />
+    <meta
+      property="og:description"
+      content="Your money, on your phone. Nowhere else."
+    />
+    <meta property="og:image" content="icon.png" />
+    <meta
+      name="theme-color"
+      content="#f1f4f2"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0c1014"
+      media="(prefers-color-scheme: dark)"
     />
     <link rel="icon" href="icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&display=swap"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
-    <main>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M5 12h14" />
+        <path d="M12 5v14" />
+      </symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24">
+        <path
+          d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+        />
+        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+      </symbol>
+      <symbol id="i-piggy-bank" viewBox="0 0 24 24">
+        <path
+          d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"
+        />
+        <path d="M16 10h.01" />
+        <path d="M2 8v1a2 2 0 0 0 2 2h1" />
+      </symbol>
+      <symbol id="i-credit-card" viewBox="0 0 24 24">
+        <rect width="20" height="14" x="2" y="5" rx="2" />
+        <line x1="2" x2="22" y1="10" y2="10" />
+      </symbol>
+      <symbol id="i-trending-up" viewBox="0 0 24 24">
+        <path d="M16 7h6v6" />
+        <path d="m22 7-8.5 8.5-5-5L2 17" />
+      </symbol>
+      <symbol id="i-landmark" viewBox="0 0 24 24">
+        <path d="M10 18v-7" />
+        <path
+          d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z"
+        />
+        <path d="M14 18v-7" />
+        <path d="M18 18v-7" />
+        <path d="M3 22h18" />
+        <path d="M6 18v-7" />
+      </symbol>
+      <symbol id="i-hand-coins" viewBox="0 0 24 24">
+        <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
+        <path
+          d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"
+        />
+        <path d="m2 16 6 6" />
+        <circle cx="16" cy="9" r="2.9" />
+        <circle cx="6" cy="5" r="3" />
+      </symbol>
+      <symbol id="i-shopping-cart" viewBox="0 0 24 24">
+        <path
+          d="m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18"
+        />
+        <path
+          d="M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25"
+        />
+        <circle cx="18" cy="20" r="2" />
+        <circle cx="8" cy="20" r="2" />
+      </symbol>
+      <symbol id="i-utensils" viewBox="0 0 24 24">
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+        <path d="M7 2v20" />
+        <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+      </symbol>
+      <symbol id="i-car" viewBox="0 0 24 24">
+        <path
+          d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"
+        />
+        <circle cx="7" cy="17" r="2" />
+        <path d="M9 17h6" />
+        <circle cx="17" cy="17" r="2" />
+      </symbol>
+      <symbol id="i-fuel" viewBox="0 0 24 24">
+        <path
+          d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 4 0v-6.998a2 2 0 0 0-.59-1.42L18 5"
+        />
+        <path d="M14 21V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16" />
+        <path d="M2 21h13" />
+        <path d="M3 9h11" />
+      </symbol>
+      <symbol id="i-house" viewBox="0 0 24 24">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+        />
+      </symbol>
+      <symbol id="i-shopping-bag" viewBox="0 0 24 24">
+        <path d="M16 10a4 4 0 0 1-8 0" />
+        <path d="M3.103 6.034h17.794" />
+        <path
+          d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"
+        />
+      </symbol>
+      <symbol id="i-heart-pulse" viewBox="0 0 24 24">
+        <path
+          d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"
+        />
+        <path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
+      </symbol>
+      <symbol id="i-arrow-left-right" viewBox="0 0 24 24">
+        <path d="M8 3 4 7l4 4" />
+        <path d="M4 7h16" />
+        <path d="m16 21 4-4-4-4" />
+        <path d="M20 17H4" />
+      </symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24">
+        <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+        <path
+          d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
+        />
+      </symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24">
+        <path
+          d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"
+        />
+        <path d="M20 2v4" />
+        <path d="M22 4h-4" />
+        <circle cx="4" cy="20" r="2" />
+      </symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24">
+        <path
+          d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"
+        />
+      </symbol>
+      <symbol id="i-tv" viewBox="0 0 24 24">
+        <path d="m17 2-5 5-5-5" />
+        <rect width="20" height="15" x="2" y="7" rx="2" />
+      </symbol>
+      <symbol id="i-smartphone" viewBox="0 0 24 24">
+        <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+        <path d="M12 18h.01" />
+      </symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24">
+        <path
+          d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"
+        />
+        <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+        <path
+          d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"
+        />
+        <path d="m2 2 20 20" />
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path
+          d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+        />
+      </symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24">
+        <path
+          d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+        />
+        <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+      </symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24">
+        <path
+          d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"
+        />
+        <path
+          d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"
+        />
+        <path
+          d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"
+        />
+      </symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24">
+        <path
+          d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
+        />
+        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+      </symbol>
+      <symbol id="i-funnel" viewBox="0 0 24 24">
+        <path
+          d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"
+        />
+      </symbol>
+      <symbol id="i-arrow-up-down" viewBox="0 0 24 24">
+        <path d="m21 16-4 4-4-4" />
+        <path d="M17 20V4" />
+        <path d="m3 8 4-4 4 4" />
+        <path d="M7 4v16" />
+      </symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24">
+        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+      </symbol>
+      <symbol id="i-wifi-off" viewBox="0 0 24 24">
+        <path d="M12 20h.01" />
+        <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+        <path d="M5 12.859a10 10 0 0 1 5.17-2.69" />
+        <path d="M19 12.859a10 10 0 0 0-2.007-1.523" />
+        <path d="M2 8.82a15 15 0 0 1 4.177-2.643" />
+        <path d="M22 8.82a15 15 0 0 0-11.288-3.764" />
+        <path d="m2 2 20 20" />
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </symbol>
+      <symbol id="i-server" viewBox="0 0 24 24">
+        <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+        <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+        <line x1="6" x2="6.01" y1="6" y2="6" />
+        <line x1="6" x2="6.01" y1="18" y2="18" />
+      </symbol>
+      <symbol id="i-chart-pie" viewBox="0 0 24 24">
+        <path
+          d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"
+        />
+        <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+      </symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24">
+        <path d="m9 18 6-6-6-6" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="M20 6 9 17l-5-5" />
+      </symbol>
+      <symbol id="i-layout-grid" viewBox="0 0 24 24">
+        <rect width="7" height="7" x="3" y="3" rx="1" />
+        <rect width="7" height="7" x="14" y="3" rx="1" />
+        <rect width="7" height="7" x="14" y="14" rx="1" />
+        <rect width="7" height="7" x="3" y="14" rx="1" />
+      </symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24">
+        <path d="M12 5v14" />
+        <path d="m19 12-7 7-7-7" />
+      </symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24">
+        <path d="M12 17V7" />
+        <path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8" />
+        <path
+          d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"
+        />
+      </symbol>
+      <symbol id="i-coffee" viewBox="0 0 24 24">
+        <path d="M10 2v2" />
+        <path d="M14 2v2" />
+        <path
+          d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"
+        />
+        <path d="M6 2v2" />
+      </symbol>
+      <symbol id="i-bus" viewBox="0 0 24 24">
+        <path d="M8 6v6" />
+        <path d="M15 6v6" />
+        <path d="M2 12h19.6" />
+        <path
+          d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"
+        />
+        <circle cx="7" cy="18" r="2" />
+        <path d="M9 18h5" />
+        <circle cx="16" cy="18" r="2" />
+      </symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24">
+        <path d="m15 18-6-6 6-6" />
+      </symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6" />
+      </symbol>
+      <symbol id="i-refresh-cw" viewBox="0 0 24 24">
+        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+        <path d="M21 3v5h-5" />
+        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+        <path d="M8 16H3v5" />
+      </symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24">
+        <path
+          d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+        />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-list" viewBox="0 0 24 24">
+        <path d="M3 5h.01" />
+        <path d="M3 12h.01" />
+        <path d="M3 19h.01" />
+        <path d="M8 5h13" />
+        <path d="M8 12h13" />
+        <path d="M8 19h13" />
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+        <path d="M2 12h20" />
+      </symbol>
+    </svg>
+
+    <header class="wrap topbar">
       <a class="brand" href="./"><img src="icon.png" alt="" />Money Manager</a>
+      <nav aria-label="Main">
+        <a class="hide-sm" href="#features">Features</a>
+        <a class="hide-sm" href="#privacy">Privacy</a>
+        <span class="soon">Coming soon</span>
+      </nav>
+    </header>
 
-      <h1>Your money, on your phone. Nowhere else.</h1>
-      <p class="lead">
-        Track accounts, spending and investments in a calm, colourful app. There
-        is no account to create and no server of ours: your records live on your
-        phone.
-      </p>
-      <span class="pill">Coming soon to Google Play and the App Store</span>
+    <main>
+      <section class="wrap hero">
+        <div class="reveal">
+          <h1 class="display">
+            Your money, on your phone. <span>Nowhere else.</span>
+          </h1>
+          <p class="lead">
+            A calm, colourful money manager for your accounts, spending,
+            investments and debts. No sign-up and no server of ours: your
+            records live on your phone and work without a connection.
+          </p>
+          <div class="stores" aria-label="App stores">
+            <span class="store"
+              ><small>Coming soon to</small><b>Google Play</b></span
+            >
+            <span class="store"
+              ><small>Coming soon to</small><b>App Store</b></span
+            >
+          </div>
+        </div>
 
-      <ul class="features">
-        <li style="--dot: var(--primary)">
-          <strong>Private by design</strong>
-          <p>Everything is stored on the phone. We never see your data.</p>
-        </li>
-        <li style="--dot: var(--blue)">
-          <strong>Bank sync</strong>
-          <p>
-            Connect your banks through Enable Banking with your own credentials.
-          </p>
-        </li>
-        <li style="--dot: var(--amber)">
-          <strong>Payments captured for you</strong>
-          <p>
-            On Android, card payments from your wallet app turn into records
-            ready to review.
-          </p>
-        </li>
-        <li style="--dot: var(--expense)">
-          <strong>Encrypted backups</strong>
-          <p>
-            Daily backups to your own Google Drive, encrypted on the phone with
-            a passphrase only you know.
-          </p>
-        </li>
-      </ul>
+        <div class="hero-visual">
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+            <g transform="rotate(-90 50 50)">
+              <circle
+                cx="50"
+                cy="50"
+                r="28"
+                pathLength="360"
+                stroke="var(--ring-green)"
+                style="--len: 143.6"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="28"
+                pathLength="360"
+                stroke="var(--ring-cyan)"
+                stroke-dashoffset="-153.8"
+                style="--len: 70.2; --d: 150ms"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="28"
+                pathLength="360"
+                stroke="var(--ring-amber)"
+                stroke-dashoffset="-234.3"
+                style="--len: 57.4; --d: 300ms"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="28"
+                pathLength="360"
+                stroke="var(--ring-violet)"
+                stroke-dashoffset="-301.9"
+                style="--len: 47.9; --d: 450ms"
+              />
+            </g>
+          </svg>
 
-      <footer>
+          <div
+            class="phone reveal"
+            style="--d: 200ms"
+            role="img"
+            aria-label="The Overview screen: total balance, four account tiles and this month's income and expenses"
+          >
+            <div class="screen" aria-hidden="true">
+              <div class="status"><span>9:41</span><i></i></div>
+              <div class="body">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                  "
+                >
+                  <div>
+                    <div class="h">Overview</div>
+                    <div class="cap" style="margin-top: 8px">Total balance</div>
+                    <div class="big">27 224,12 €</div>
+                  </div>
+                  <span class="cat" style="--c: var(--ink-muted)"
+                    ><svg class="i"><use href="#i-layout-grid" /></svg
+                  ></span>
+                </div>
+
+                <div class="surface pad">
+                  <div class="st">3 things need you</div>
+                  <div class="meta" style="margin: 2px 0 10px">
+                    2 to categorise · 1 reimbursement
+                  </div>
+                  <div class="btn">Start review</div>
+                </div>
+
+                <div class="accounts">
+                  <div class="surface">
+                    <span class="acc" style="--c: #3b82f6"
+                      ><svg class="i"><use href="#i-landmark" /></svg
+                    ></span>
+                    <div style="min-width: 0">
+                      <div class="name">Main account</div>
+                      <div class="amt">2 341,20 €</div>
+                    </div>
+                  </div>
+                  <div class="surface">
+                    <span class="acc" style="--c: #22c55e"
+                      ><svg class="i"><use href="#i-piggy-bank" /></svg
+                    ></span>
+                    <div style="min-width: 0">
+                      <div class="name">Savings</div>
+                      <div class="amt">6 500,00 €</div>
+                    </div>
+                  </div>
+                  <div class="surface">
+                    <span class="acc" style="--c: #f97316"
+                      ><svg class="i"><use href="#i-credit-card" /></svg
+                    ></span>
+                    <div style="min-width: 0">
+                      <div class="name">Meal card</div>
+                      <div class="amt">142,80 €</div>
+                    </div>
+                  </div>
+                  <div class="surface">
+                    <span class="acc" style="--c: #a855f7"
+                      ><svg class="i"><use href="#i-trending-up" /></svg
+                    ></span>
+                    <div style="min-width: 0">
+                      <div class="name">Investments</div>
+                      <div class="amt">18 240,12 €</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="surface pad">
+                  <div class="st">This month</div>
+                  <div class="flow">
+                    <div style="display: block">
+                      <div>
+                        <span>Income</span
+                        ><span class="amt in">2 150,00 €</span>
+                      </div>
+                      <div class="bar" style="--c: var(--primary); --v: 1">
+                        <b></b>
+                      </div>
+                    </div>
+                    <div style="display: block">
+                      <div>
+                        <span>Expenses</span
+                        ><span class="amt out">−1 284,60 €</span>
+                      </div>
+                      <div class="bar" style="--c: var(--expense); --v: 0.6">
+                        <b></b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fab">
+                <svg class="i"><use href="#i-plus" /></svg>
+              </div>
+              <div class="tabbar">
+                <span class="on"
+                  ><svg class="i"><use href="#i-layout-grid" /></svg
+                  >Overview</span
+                >
+                <span
+                  ><svg class="i"><use href="#i-wallet" /></svg>Accounts</span
+                >
+                <span
+                  ><svg class="i"><use href="#i-arrow-left-right" /></svg
+                  >Records</span
+                >
+                <span
+                  ><svg class="i"><use href="#i-trending-up" /></svg
+                  >Investments</span
+                >
+                <span
+                  ><svg class="i"><use href="#i-chart-pie" /></svg>Stats</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="features"></div>
+
+      <section class="wrap chapter flip">
+        <div class="copy reveal">
+          <h2 class="title">Add a record in seconds.</h2>
+          <p>
+            Tap the green button, type the amount, pick a category. The form
+            fits on one screen and remembers the merchants you already know.
+          </p>
+          <ul class="points">
+            <li>
+              <span class="glyph" style="--c: var(--ring-green)"
+                ><svg class="i"><use href="#i-smartphone" /></svg
+              ></span>
+              <span
+                ><b>Straight from the home screen</b>A widget and a Quick
+                Settings tile open the form on Expense, Income or
+                Transfer.</span
+              >
+            </li>
+            <li>
+              <span class="glyph" style="--c: var(--ring-violet)"
+                ><svg class="i"><use href="#i-list" /></svg
+              ></span>
+              <span
+                ><b>Rules do the typing</b>Match a merchant once and every new
+                record from it gets its name, category and labels.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="stage record-stage reveal"
+          style="--stage: var(--tint-green)"
+        >
+          <div class="tile-qs" aria-hidden="true">
+            <svg class="i"><use href="#i-plus" /></svg>
+            <span><b>Money Manager</b><small>Add record</small></span>
+          </div>
+
+          <div
+            class="phone"
+            role="img"
+            aria-label="The new record form with Expense selected, an amount of 12,40 euros and Groceries picked"
+          >
+            <div class="screen" aria-hidden="true">
+              <div class="status"><span>9:41</span><i></i></div>
+              <div class="appbar">
+                <svg class="i"><use href="#i-chevron-left" /></svg>New record
+              </div>
+              <div class="body">
+                <div class="seg">
+                  <span class="on" style="--c: var(--expense)">Expense</span
+                  ><span>Income</span><span>Transfer</span>
+                </div>
+                <div class="amount-field">
+                  <div class="big out">−12,40 €</div>
+                  <div class="meta">Today, 9:41</div>
+                </div>
+                <div class="field">
+                  <span
+                    class="acc"
+                    style="
+                      --c: #3b82f6;
+                      width: 26px;
+                      height: 26px;
+                      font-size: 13px;
+                    "
+                    ><svg class="i"><use href="#i-landmark" /></svg
+                  ></span>
+                  <span class="grow">Main account</span
+                  ><svg class="i"><use href="#i-chevron-down" /></svg>
+                </div>
+                <div class="field">
+                  <svg class="i"><use href="#i-receipt" /></svg
+                  ><span class="grow">Pingo Doce</span>
+                </div>
+                <div class="surface pad">
+                  <div class="cats">
+                    <span class="picked"
+                      ><span class="cat" style="--c: #22c55e"
+                        ><svg class="i">
+                          <use href="#i-shopping-cart" /></svg></span
+                      >Groceries</span
+                    >
+                    <span
+                      ><span class="cat" style="--c: #f97316"
+                        ><svg class="i"><use href="#i-utensils" /></svg></span
+                      >Restaurants</span
+                    >
+                    <span
+                      ><span class="cat" style="--c: #3b82f6"
+                        ><svg class="i"><use href="#i-bus" /></svg></span
+                      >Transport</span
+                    >
+                    <span
+                      ><span class="cat" style="--c: #f59e0b"
+                        ><svg class="i"><use href="#i-fuel" /></svg></span
+                      >Fuel</span
+                    >
+                    <span
+                      ><span class="cat" style="--c: #6366f1"
+                        ><svg class="i"><use href="#i-house" /></svg></span
+                      >Home</span
+                    >
+                    <span
+                      ><span class="cat" style="--c: #ec4899"
+                        ><svg class="i">
+                          <use href="#i-shopping-bag" /></svg></span
+                      >Shopping</span
+                    >
+                    <span
+                      ><span class="cat" style="--c: #14b8a6"
+                        ><svg class="i">
+                          <use href="#i-heart-pulse" /></svg></span
+                      >Health</span
+                    >
+                    <span
+                      ><span class="cat" style="--c: #78716c"
+                        ><svg class="i"><use href="#i-coffee" /></svg></span
+                      >Coffee</span
+                    >
+                  </div>
+                </div>
+                <div style="display: flex; gap: 6px">
+                  <span class="chip"
+                    ><span class="dot" style="--c: #ec4899"></span>Family</span
+                  >
+                  <span class="chip"
+                    ><svg class="i"><use href="#i-tag" /></svg>Add label</span
+                  >
+                </div>
+                <div style="flex: 1"></div>
+                <div class="btn lg">Save</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget" aria-hidden="true">
+            <header>
+              <img src="icon.png" alt="" />
+              <div>
+                <div class="meta">Spent in September</div>
+                <div class="amt">1 284,60 €</div>
+              </div>
+            </header>
+            <div class="actions">
+              <span style="--s: var(--expense-soft); --c: var(--expense)"
+                ><svg class="i"><use href="#i-plus" /></svg>Expense</span
+              >
+              <span style="--s: var(--primary-soft); --c: var(--primary-deep)"
+                ><svg class="i"><use href="#i-plus" /></svg>Income</span
+              >
+              <span style="--s: var(--transfer-soft); --c: var(--transfer)"
+                ><svg class="i"><use href="#i-arrow-left-right" /></svg
+                >Transfer</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap capture">
+        <div class="band">
+          <div class="copy reveal">
+            <span class="tag"
+              ><svg class="i"><use href="#i-smartphone" /></svg>Android</span
+            >
+            <h2 class="title">Card payments that write themselves.</h2>
+            <p>
+              Pay with your phone and Money Manager reads the notification from
+              the payment app you choose, like Google Wallet. The payment waits
+              for its category, and one tap saves it. The notification is read
+              on the phone and never sent anywhere.
+            </p>
+          </div>
+
+          <div class="flowline">
+            <div class="reveal">
+              <div class="step-label">You pay</div>
+              <div class="notif">
+                <span class="app"
+                  ><svg class="i"><use href="#i-wallet" /></svg
+                ></span>
+                <div>
+                  <div class="meta">Google Wallet · now</div>
+                  <b>Pingo Doce</b>
+                  <span class="num">12,40 € with Visa •••• 4821</span>
+                </div>
+              </div>
+            </div>
+            <div class="arrow reveal" style="--d: 150ms" aria-hidden="true">
+              <svg class="i"><use href="#i-arrow-down" /></svg>
+            </div>
+            <div class="reveal" style="--d: 250ms">
+              <div class="step-label">Money Manager asks once</div>
+              <div class="paycard">
+                <div class="top">
+                  <div>
+                    <b style="font-size: 15px">Pingo Doce</b>
+                    <div class="meta">Main account · Today, 12:04</div>
+                  </div>
+                  <span class="amt out">−12,40 €</span>
+                </div>
+                <div class="q">Which category?</div>
+                <div class="picks">
+                  <span class="on"
+                    ><span class="cat" style="--c: #22c55e"
+                      ><svg class="i">
+                        <use href="#i-shopping-cart" /></svg></span
+                    >Groceries</span
+                  >
+                  <span
+                    ><span class="cat" style="--c: #f97316"
+                      ><svg class="i"><use href="#i-utensils" /></svg></span
+                    >Restaurants</span
+                  >
+                  <span
+                    ><span class="cat" style="--c: #ec4899"
+                      ><svg class="i"><use href="#i-shopping-bag" /></svg></span
+                    >Shopping</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="arrow reveal" style="--d: 400ms" aria-hidden="true">
+              <svg class="i"><use href="#i-arrow-down" /></svg>
+            </div>
+            <div class="reveal" style="--d: 500ms">
+              <div class="step-label">It is in your records</div>
+              <div class="saved">
+                <div class="row">
+                  <span class="cat" style="--c: #22c55e"
+                    ><svg class="i"><use href="#i-shopping-cart" /></svg
+                  ></span>
+                  <div class="grow">
+                    <div class="name">Pingo Doce</div>
+                    <div class="meta">Groceries · Main account</div>
+                  </div>
+                  <span class="amt out">−12,40 €</span>
+                </div>
+                <div class="ok">
+                  <svg class="i"><use href="#i-check" /></svg>Saved
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap chapter">
+        <div class="copy reveal">
+          <h2 class="title">Your banks, synced from your phone.</h2>
+          <p>
+            Connect your banks through Enable Banking with credentials you
+            create. Transactions arrive on the phone and land in
+            <strong>one review inbox</strong>, next to captured payments and
+            refunds that still need to be matched to what they pay back.
+          </p>
+          <ul class="points">
+            <li>
+              <span class="glyph" style="--c: var(--ring-cyan)"
+                ><svg class="i"><use href="#i-sparkles" /></svg
+              ></span>
+              <span
+                ><b>AI suggestions, with your own key</b>Pick Anthropic, OpenAI
+                or Google. Only the merchant name and your category names are
+                sent, never amounts or dates.</span
+              >
+            </li>
+            <li>
+              <span class="glyph" style="--c: var(--ring-amber)"
+                ><svg class="i"><use href="#i-hand-coins" /></svg
+              ></span>
+              <span
+                ><b>Paid back, not income</b>When a friend pays you back, the
+                expense shrinks to your share.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="stage reveal" style="--stage: var(--tint-cyan)">
+          <div
+            class="phone"
+            role="img"
+            aria-label="The review inbox showing a bank transaction from Continente with Groceries suggested"
+          >
+            <div class="screen" aria-hidden="true">
+              <div class="status"><span>9:41</span><i></i></div>
+              <div class="appbar">
+                <svg class="i"><use href="#i-chevron-left" /></svg>Review
+              </div>
+              <div class="body">
+                <div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    <span class="meta">1 of 4</span
+                    ><span class="meta">3 left</span>
+                  </div>
+                  <div
+                    class="bar"
+                    style="
+                      --c: var(--primary);
+                      --v: 0.25;
+                      background: var(--hairline);
+                    "
+                  >
+                    <b></b>
+                  </div>
+                </div>
+
+                <div class="surface pad review-card">
+                  <div class="src">
+                    <svg class="i"><use href="#i-landmark" /></svg>From your
+                    bank · Main account
+                  </div>
+                  <div class="who">
+                    <b>Continente</b><span class="amt out">−38,72 €</span>
+                  </div>
+                  <div class="meta">Sat, 26 Sept</div>
+                  <div class="suggest">
+                    <span class="cat" style="--c: #22c55e"
+                      ><svg class="i"><use href="#i-shopping-cart" /></svg
+                    ></span>
+                    <div class="grow">
+                      <div style="font-weight: 600">Groceries</div>
+                      <div class="meta">
+                        <svg class="i"><use href="#i-sparkles" /></svg>Suggested
+                      </div>
+                    </div>
+                  </div>
+                  <div class="two">
+                    <span class="btn">Use Groceries</span>
+                    <span class="btn ghost">Pick another</span>
+                  </div>
+                </div>
+
+                <div class="cap" style="margin-top: 4px">Up next</div>
+                <div class="surface">
+                  <div class="row">
+                    <span class="cat" style="--c: #78716c"
+                      ><svg class="i"><use href="#i-car" /></svg
+                    ></span>
+                    <div class="grow">
+                      <div class="name">Uber</div>
+                      <div class="meta">To categorise</div>
+                    </div>
+                    <span class="amt out">−8,90 €</span>
+                  </div>
+                  <div class="row">
+                    <span class="cat" style="--c: #f59e0b"
+                      ><svg class="i"><use href="#i-hand-coins" /></svg
+                    ></span>
+                    <div class="grow">
+                      <div class="name">Ana Costa</div>
+                      <div class="meta">Which expense does it pay back?</div>
+                    </div>
+                    <span class="amt in">22,50 €</span>
+                  </div>
+                  <div class="row">
+                    <span class="cat" style="--c: #f59e0b"
+                      ><svg class="i"><use href="#i-fuel" /></svg
+                    ></span>
+                    <div class="grow">
+                      <div class="name">Galp</div>
+                      <div class="meta">Captured payment</div>
+                    </div>
+                    <span class="amt out">−45,00 €</span>
+                  </div>
+                </div>
+
+                <div style="flex: 1"></div>
+                <div class="surface synced">
+                  <svg class="i"><use href="#i-refresh-cw" /></svg>Enable
+                  Banking · synced 2 minutes ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap stats">
+        <div class="stats-head">
+          <h2 class="title reveal">See where the money went.</h2>
+          <div class="copy reveal" style="--d: 100ms">
+            <p>
+              Spending by category and subcategory, trends, cash flow, balance
+              and a monthly statement, month by month or for one account.
+              <strong
+                >Tap any figure to see the exact records behind it.</strong
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="board reveal">
+          <div
+            class="surface"
+            role="img"
+            aria-label="Stats for September 2026: 1 284,60 euros spent, split into Home, Groceries, Restaurants, Transport, Shopping and Health"
+          >
+            <div class="chips" aria-hidden="true">
+              <span class="chip on">Spending</span
+              ><span class="chip">Trends</span
+              ><span class="chip">Cash flow</span
+              ><span class="chip">Balance</span
+              ><span class="chip">Labels and payees</span
+              ><span class="chip">Statement</span>
+            </div>
+
+            <div class="donut" aria-hidden="true">
+              <svg viewBox="0 0 42 42">
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="16"
+                  pathLength="100"
+                  stroke="#6366f1"
+                  style="--len: 57.58"
+                />
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="16"
+                  pathLength="100"
+                  stroke="#22c55e"
+                  stroke-dashoffset="-58.38"
+                  style="--len: 15.73; --d: 100ms"
+                />
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="16"
+                  pathLength="100"
+                  stroke="#f97316"
+                  stroke-dashoffset="-74.91"
+                  style="--len: 8.41; --d: 200ms"
+                />
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="16"
+                  pathLength="100"
+                  stroke="#3b82f6"
+                  stroke-dashoffset="-84.12"
+                  style="--len: 5.93; --d: 300ms"
+                />
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="16"
+                  pathLength="100"
+                  stroke="#ec4899"
+                  stroke-dashoffset="-90.85"
+                  style="--len: 4.25; --d: 400ms"
+                />
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="16"
+                  pathLength="100"
+                  stroke="#14b8a6"
+                  stroke-dashoffset="-95.90"
+                  style="--len: 3.29; --d: 500ms"
+                />
+              </svg>
+              <div class="center">
+                <b>1 284,60 €</b><span>spent in September</span>
+              </div>
+            </div>
+
+            <div class="catlist" aria-hidden="true">
+              <div class="row">
+                <span class="cat" style="--c: #6366f1"
+                  ><svg class="i"><use href="#i-house" /></svg
+                ></span>
+                <div class="grow name">Home</div>
+                <span class="share">58%</span><span class="amt">750,00 €</span
+                ><svg class="i chev"><use href="#i-chevron-right" /></svg>
+              </div>
+              <div class="row open">
+                <span class="cat" style="--c: #22c55e"
+                  ><svg class="i"><use href="#i-shopping-cart" /></svg
+                ></span>
+                <div class="grow name">Groceries</div>
+                <span class="share">17%</span><span class="amt">212,40 €</span
+                ><svg class="i chev"><use href="#i-chevron-right" /></svg>
+              </div>
+              <div class="row sub">
+                <div class="grow">Supermarket</div>
+                <span class="amt">171,90 €</span>
+              </div>
+              <div class="row sub">
+                <div class="grow">Bakery</div>
+                <span class="amt">40,50 €</span>
+              </div>
+              <div class="row">
+                <span class="cat" style="--c: #f97316"
+                  ><svg class="i"><use href="#i-utensils" /></svg
+                ></span>
+                <div class="grow name">Restaurants</div>
+                <span class="share">9%</span><span class="amt">118,30 €</span
+                ><svg class="i chev"><use href="#i-chevron-right" /></svg>
+              </div>
+              <div class="row">
+                <span class="cat" style="--c: #3b82f6"
+                  ><svg class="i"><use href="#i-bus" /></svg
+                ></span>
+                <div class="grow name">Transport</div>
+                <span class="share">7%</span><span class="amt">86,50 €</span
+                ><svg class="i chev"><use href="#i-chevron-right" /></svg>
+              </div>
+              <div class="row">
+                <span class="cat" style="--c: #ec4899"
+                  ><svg class="i"><use href="#i-shopping-bag" /></svg
+                ></span>
+                <div class="grow name">Shopping</div>
+                <span class="share">5%</span><span class="amt">64,90 €</span
+                ><svg class="i chev"><use href="#i-chevron-right" /></svg>
+              </div>
+              <div class="row">
+                <span class="cat" style="--c: #14b8a6"
+                  ><svg class="i"><use href="#i-heart-pulse" /></svg
+                ></span>
+                <div class="grow name">Health</div>
+                <span class="share">4%</span><span class="amt">52,50 €</span
+                ><svg class="i chev"><use href="#i-chevron-right" /></svg>
+              </div>
+            </div>
+          </div>
+          <div class="drill" aria-hidden="true">
+            <svg class="i"><use href="#i-list" /></svg
+            ><span class="num">All of Groceries · 14 records · 212,40 €</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap stats">
+        <h2 class="title reveal" style="max-width: 16ch">
+          Investments and debts, next to your cash.
+        </h2>
+
+        <div class="pair">
+          <div class="reveal" style="--stage: var(--tint-violet)">
+            <div
+              class="surface"
+              role="img"
+              aria-label="Three holdings worth 18 240,12 euros in total, 2 058,44 euros up"
+            >
+              <div class="pair-head" aria-hidden="true">
+                <div class="cap">Investments</div>
+                <div class="big">18 240,12 €</div>
+                <div class="meta">
+                  <span class="amt in">2 058,44 €</span> unrealised gain
+                </div>
+              </div>
+              <div aria-hidden="true">
+                <div class="row">
+                  <span class="acc" style="--c: #6366f1"
+                    ><svg class="i"><use href="#i-trending-up" /></svg
+                  ></span>
+                  <div class="grow">
+                    <div class="name">VWCE</div>
+                    <div class="meta">FTSE All-World · 96,5 units</div>
+                  </div>
+                  <div>
+                    <div class="amt">12 840,20 €</div>
+                    <div class="amt in meta">1 612,30 €</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <span class="acc" style="--c: #06b6d4"
+                    ><svg class="i"><use href="#i-trending-up" /></svg
+                  ></span>
+                  <div class="grow">
+                    <div class="name">EUNL</div>
+                    <div class="meta">Core MSCI World · 38 units</div>
+                  </div>
+                  <div>
+                    <div class="amt">3 911,52 €</div>
+                    <div class="amt in meta">398,14 €</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <span class="acc" style="--c: #a855f7"
+                    ><svg class="i"><use href="#i-trending-up" /></svg
+                  ></span>
+                  <div class="grow">
+                    <div class="name">EXSA</div>
+                    <div class="meta">STOXX Europe 600 · 27 units</div>
+                  </div>
+                  <div>
+                    <div class="amt">1 488,40 €</div>
+                    <div class="amt in meta">48,00 €</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="pair-note" style="--c: var(--ring-violet)">
+              <svg class="i"><use href="#i-refresh-cw" /></svg>
+              <span
+                ><b>Prices fetched daily, gains worked out for you.</b>
+                Round-ups, saveback and savings plans from your broker become
+                buys on their own.</span
+              >
+            </p>
+          </div>
+
+          <div
+            class="reveal debt"
+            style="--stage: var(--tint-amber); --d: 120ms"
+          >
+            <div
+              class="surface"
+              role="img"
+              aria-label="A 600 euro loan to Rui with 250 euros repaid and 350 euros left, paid off around February 2027"
+            >
+              <div class="pair-head" aria-hidden="true" style="border: 0">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <div class="st" style="font-size: 16px">Lent to Rui</div>
+                  <span class="chip">Lent · 600,00 €</span>
+                </div>
+              </div>
+              <div
+                class="bar"
+                aria-hidden="true"
+                style="--c: var(--ring-amber); --v: 0.417"
+              >
+                <b></b>
+              </div>
+              <div class="three" aria-hidden="true">
+                <div>
+                  <div class="meta">Repaid</div>
+                  <div class="amt">250,00 €</div>
+                </div>
+                <div>
+                  <div class="meta">Remaining</div>
+                  <div class="amt">350,00 €</div>
+                </div>
+                <div>
+                  <div class="meta">Paid off</div>
+                  <div class="amt">Feb 2027</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="surface"
+              role="img"
+              aria-label="A 12 000 euro car loan with 6 879,60 euros left, paid off around June 2028"
+            >
+              <div class="pair-head" aria-hidden="true" style="border: 0">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <div class="st" style="font-size: 16px">Car loan</div>
+                  <span class="chip">Borrowed · 12 000,00 €</span>
+                </div>
+              </div>
+              <div
+                class="bar"
+                aria-hidden="true"
+                style="--c: var(--ring-cyan); --v: 0.427"
+              >
+                <b></b>
+              </div>
+              <div class="three" aria-hidden="true">
+                <div>
+                  <div class="meta">Repaid</div>
+                  <div class="amt">5 120,40 €</div>
+                </div>
+                <div>
+                  <div class="meta">Remaining</div>
+                  <div class="amt">6 879,60 €</div>
+                </div>
+                <div>
+                  <div class="meta">Paid off</div>
+                  <div class="amt">Jun 2028</div>
+                </div>
+              </div>
+            </div>
+            <p class="pair-note" style="--c: var(--ring-amber)">
+              <svg class="i"><use href="#i-hand-coins" /></svg>
+              <span
+                ><b>Money you lent or borrowed has its own page.</b> Repayments
+                stay normal records, so balances stay right.</span
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap chapter flip bills">
+        <div class="copy reveal">
+          <h2 class="title">Bills you can see coming.</h2>
+          <p>
+            Money Manager spots the payments that repeat and lists the next
+            ones, with a reminder on the day or a few days before. No setup: it
+            learns from the records you already have.
+          </p>
+        </div>
+
+        <div class="stage reveal" style="--stage: var(--tint-coral)">
+          <div
+            class="surface"
+            role="img"
+            aria-label="Upcoming bills: rent, electricity, Netflix and phone, with a reminder one day before"
+          >
+            <div class="st" aria-hidden="true">Upcoming bills</div>
+            <div aria-hidden="true">
+              <div class="row">
+                <span class="cat" style="--c: #6366f1"
+                  ><svg class="i"><use href="#i-house" /></svg
+                ></span>
+                <div class="grow">
+                  <div class="name">Rent</div>
+                  <div class="meta">Thu, 1 Oct · in 3 days</div>
+                </div>
+                <span class="amt out">−750,00 €</span>
+              </div>
+              <div class="row">
+                <span class="cat" style="--c: #f59e0b"
+                  ><svg class="i"><use href="#i-zap" /></svg
+                ></span>
+                <div class="grow">
+                  <div class="name">Electricity</div>
+                  <div class="meta">Mon, 5 Oct</div>
+                </div>
+                <span class="amt out">−54,20 €</span>
+              </div>
+              <div class="row">
+                <span class="cat" style="--c: #ef4444"
+                  ><svg class="i"><use href="#i-tv" /></svg
+                ></span>
+                <div class="grow">
+                  <div class="name">Netflix</div>
+                  <div class="meta">Mon, 12 Oct</div>
+                </div>
+                <span class="amt out">−13,99 €</span>
+              </div>
+              <div class="row">
+                <span class="cat" style="--c: #06b6d4"
+                  ><svg class="i"><use href="#i-smartphone" /></svg
+                ></span>
+                <div class="grow">
+                  <div class="name">Phone</div>
+                  <div class="meta">Sun, 18 Oct</div>
+                </div>
+                <span class="amt out">−29,99 €</span>
+              </div>
+            </div>
+            <div
+              class="st"
+              aria-hidden="true"
+              style="padding-top: 12px; font-size: 13px"
+            >
+              <span style="display: inline-flex; align-items: center; gap: 6px"
+                ><svg class="i"><use href="#i-bell" /></svg>Remind me</span
+              >
+            </div>
+            <div class="seg" aria-hidden="true">
+              <span>Same day</span
+              ><span class="on" style="--c: var(--primary)">1 day before</span
+              ><span>3 days before</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy" id="privacy">
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <g transform="rotate(-90 50 50)">
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              style="--len: 143.6"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              stroke-dashoffset="-153.8"
+              style="--len: 70.2; --d: 150ms"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              stroke-dashoffset="-234.3"
+              style="--len: 57.4; --d: 300ms"
+            />
+            <circle
+              cx="50"
+              cy="50"
+              r="28"
+              pathLength="360"
+              stroke="var(--band-ink)"
+              stroke-dashoffset="-301.9"
+              style="--len: 47.9; --d: 450ms"
+            />
+          </g>
+        </svg>
+        <div class="wrap">
+          <h2 class="title reveal">
+            No account. No server of ours. Just your phone.
+          </h2>
+          <p class="lead reveal" style="--d: 100ms">
+            There is nothing to sign up for. Everything you record is stored on
+            the phone, and nobody else gets a copy, including us.
+          </p>
+          <ul class="facts">
+            <li class="reveal">
+              <h3>
+                <svg class="i"><use href="#i-wifi-off" /></svg>Works offline
+              </h3>
+              <p>
+                Airplane mode changes nothing. Records, stats and backups to a
+                file all work without a connection.
+              </p>
+            </li>
+            <li class="reveal" style="--d: 100ms">
+              <h3>
+                <svg class="i"><use href="#i-lock" /></svg>Encrypted backups
+              </h3>
+              <p>
+                A daily backup to your own Google Drive, encrypted on the phone
+                with a passphrase only you know. Google cannot read it.
+              </p>
+            </li>
+            <li class="reveal">
+              <h3>
+                <svg class="i"><use href="#i-shield-check" /></svg>Nothing
+                collected
+              </h3>
+              <p>
+                No analytics, no ads, no tracking. Bank, AI and backup
+                connections use your own accounts and go straight from your
+                phone.
+              </p>
+            </li>
+            <li class="reveal" style="--d: 100ms">
+              <h3>
+                <svg class="i"><use href="#i-server" /></svg>Your own server, if
+                you want
+              </h3>
+              <p>
+                Run the optional service for a read-only view in the browser,
+                and an MCP server so your AI assistant can answer questions
+                about your money.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="wrap details">
+        <h2 class="title reveal" style="max-width: 18ch">
+          And the small things that make it yours.
+        </h2>
+        <ul class="detail-list">
+          <li class="reveal" style="--c: #22c55e">
+            <svg class="i"><use href="#i-layers" /></svg
+            ><b>Categories and subcategories</b
+            ><span>Supermarket and Bakery roll up into Groceries.</span>
+          </li>
+          <li class="reveal" style="--c: #ec4899">
+            <svg class="i"><use href="#i-tag" /></svg><b>Labels</b
+            ><span
+              >Tags that cut across categories, like Holidays or Family.</span
+            >
+          </li>
+          <li class="reveal" style="--c: #f97316">
+            <svg class="i"><use href="#i-palette" /></svg><b>Your colours</b
+            ><span
+              >Twelve colours and an icon for every account, category and
+              label.</span
+            >
+          </li>
+          <li class="reveal" style="--c: #3b82f6">
+            <svg class="i"><use href="#i-funnel" /></svg
+            ><b>Filters that find it</b
+            ><span
+              >Search by text, amount, date range, account, category or
+              label.</span
+            >
+          </li>
+          <li class="reveal" style="--c: #78716c">
+            <svg class="i"><use href="#i-eye-off" /></svg><b>Hide amounts</b
+            ><span
+              >One switch turns every figure into dots, for checking in
+              public.</span
+            >
+          </li>
+          <li class="reveal" style="--c: #6366f1">
+            <svg class="i"><use href="#i-moon" /></svg><b>Light and dark</b
+            ><span>Follows your phone, or pick one yourself.</span>
+          </li>
+          <li class="reveal" style="--c: #14b8a6">
+            <svg class="i"><use href="#i-arrow-up-down" /></svg
+            ><b>Accounts in your order</b
+            ><span>Every list and picker follows the order you set.</span>
+          </li>
+          <li class="reveal" style="--c: #a855f7">
+            <svg class="i"><use href="#i-globe" /></svg><b>Any currency</b
+            ><span
+              >Each account keeps its own currency, with nothing converted
+              behind your back.</span
+            >
+          </li>
+          <li class="reveal" style="--c: #f59e0b">
+            <svg class="i"><use href="#i-cloud" /></svg
+            ><b>New phone, same money</b
+            ><span
+              >Restore a backup from a file or from Drive on the first
+              screen.</span
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section class="wrap closing">
+        <h2 class="title reveal">
+          Coming soon to Google Play and the App Store.
+        </h2>
+        <p class="lead reveal" style="--d: 100ms">
+          Money Manager is in its final round of testing. Questions, or want to
+          know when it is out?
+          <a href="mailto:pjfseixas.17@gmail.com">pjfseixas.17@gmail.com</a>
+        </p>
+        <div class="stores reveal" style="--d: 150ms" aria-label="App stores">
+          <span class="store"
+            ><small>Coming soon to</small><b>Google Play</b></span
+          >
+          <span class="store"
+            ><small>Coming soon to</small><b>App Store</b></span
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap site-footer">
+      <a class="brand" href="./"><img src="icon.png" alt="" />Money Manager</a>
+      <nav aria-label="Footer">
         <a href="privacy.html">Privacy policy</a>
         <a href="mailto:pjfseixas.17@gmail.com">Contact</a>
-      </footer>
-    </main>
+      </nav>
+    </footer>
+
+    <script>
+      const seen = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.add("seen");
+            seen.unobserve(entry.target);
+          }
+        },
+        { rootMargin: "0px 0px -10% 0px" },
+      );
+      document
+        .querySelectorAll(".reveal, .ring")
+        .forEach((el) => seen.observe(el));
+    </script>
   </body>
 </html>
