@@ -336,6 +336,18 @@
           d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"
         />
       </symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24">
+        <path
+          d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+        />
+        <circle cx="12" cy="12" r="3" />
+      </symbol>
+      <symbol id="i-inbox" viewBox="0 0 24 24">
+        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+        <path
+          d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+        />
+      </symbol>
     </svg>
 
     <header class="wrap topbar">
@@ -918,160 +930,408 @@
         </div>
       </section>
 
-      <section class="wrap chapter">
-        <div class="copy reveal">
-          <h2 class="title">Your banks, synced from your phone.</h2>
-          <p>
-            Connect your bank through Enable Banking, with an application you
-            create yourself. It works with the main Portuguese banks, like Caixa
-            Geral de Depósitos, Millennium BCP, Santander Totta, Novo Banco, BPI
-            and Montepio.
-            <a
-              href="https://enablebanking.com/open-banking-apis?country=PT"
-              rel="noopener"
-              >See every supported bank</a
-            >
-          </p>
-          <p>
-            Transactions land in <strong>one review inbox</strong>, next to
-            captured payments and refunds that still need to be matched to what
-            they pay back.
-          </p>
-          <ul class="points">
-            <li>
-              <span class="glyph" style="--c: var(--ring-cyan)"
-                ><svg class="i"><use href="#i-refresh-cw" /></svg
-              ></span>
-              <span
-                ><b>Syncs on its own</b>New transactions come in about twice a
-                day in the background and whenever you open the app, so balances
-                stay current without importing anything. Your bank asks you to
-                confirm access every few months.</span
-              >
-            </li>
-            <li>
-              <span class="glyph" style="--c: var(--ring-green)"
-                ><svg class="i"><use href="#i-key-round" /></svg
-              ></span>
-              <span
-                ><b>Your bank key never leaves the phone</b>You log in on your
-                bank&#8217;s own app or site. The private key that reads your
-                accounts stays in the phone&#8217;s secure storage, so the login
-                is useless to anyone else.</span
-              >
-            </li>
-            <li>
-              <span class="glyph" style="--c: var(--ring-amber)"
-                ><svg class="i"><use href="#i-sparkles" /></svg
-              ></span>
-              <span
-                ><b>AI suggestions, with your own key</b>Pick Anthropic, OpenAI
-                or Google. Only the merchant name and your category names are
-                sent, never amounts or dates.</span
-              >
-            </li>
-          </ul>
+      <section class="banks">
+        <div class="wrap split-head">
+          <h2 class="title reveal">Your banks, synced from your phone.</h2>
+          <div class="copy reveal" style="--d: 100ms">
+            <p>
+              Connect your bank through Enable Banking, with an application you
+              create yourself. It works with the main Portuguese banks and the
+              digital ones you already use.
+            </p>
+          </div>
         </div>
 
-        <div class="stage reveal" style="--stage: var(--tint-cyan)">
-          <div
-            class="phone"
-            role="img"
-            aria-label="The review inbox showing a bank transaction from Continente with Groceries suggested"
+        <div
+          class="marquee reveal"
+          role="region"
+          aria-label="Some of the supported banks"
+        >
+          <div class="lane">
+            <ul class="track">
+              <li>
+                <img src="banks/cgd.svg" alt="" style="--h: 30px" /><span
+                  >Caixa Geral de Depósitos</span
+                >
+              </li>
+              <li>
+                <img
+                  src="banks/millennium.svg"
+                  alt="Millennium bcp"
+                  style="--h: 34px"
+                />
+              </li>
+              <li>
+                <img
+                  src="banks/santander.svg"
+                  alt="Santander"
+                  style="--h: 26px"
+                />
+              </li>
+              <li>
+                <img
+                  src="banks/novobanco.svg"
+                  alt="novobanco"
+                  style="--h: 22px"
+                />
+              </li>
+              <li><img src="banks/bpi.svg" alt="BPI" style="--h: 28px" /></li>
+              <li>
+                <img
+                  src="banks/montepio.svg"
+                  alt="Banco Montepio"
+                  style="--h: 26px"
+                />
+              </li>
+              <li>
+                <img
+                  src="banks/bankinter.svg"
+                  alt="Bankinter"
+                  style="--h: 22px"
+                />
+              </li>
+              <li>
+                <img src="banks/abanca.svg" alt="Abanca" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/cgd.svg" alt="" style="--h: 30px" /><span
+                  >Caixa Geral de Depósitos</span
+                >
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/millennium.svg" alt="" style="--h: 34px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/santander.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/novobanco.svg" alt="" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bpi.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/montepio.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bankinter.svg" alt="" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/abanca.svg" alt="" style="--h: 22px" />
+              </li>
+            </ul>
+            <ul class="track" aria-hidden="true">
+              <li aria-hidden="true">
+                <img src="banks/cgd.svg" alt="" style="--h: 30px" /><span
+                  >Caixa Geral de Depósitos</span
+                >
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/millennium.svg" alt="" style="--h: 34px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/santander.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/novobanco.svg" alt="" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bpi.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/montepio.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bankinter.svg" alt="" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/abanca.svg" alt="" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/cgd.svg" alt="" style="--h: 30px" /><span
+                  >Caixa Geral de Depósitos</span
+                >
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/millennium.svg" alt="" style="--h: 34px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/santander.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/novobanco.svg" alt="" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bpi.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/montepio.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bankinter.svg" alt="" style="--h: 22px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/abanca.svg" alt="" style="--h: 22px" />
+              </li>
+            </ul>
+          </div>
+          <div class="lane reverse">
+            <ul class="track">
+              <li>
+                <img src="banks/revolut.svg" alt="Revolut" style="--h: 26px" />
+              </li>
+              <li><img src="banks/n26.svg" alt="N26" style="--h: 30px" /></li>
+              <li><img src="banks/wise.svg" alt="Wise" style="--h: 28px" /></li>
+              <li><img src="banks/ing.svg" alt="ING" style="--h: 28px" /></li>
+              <li><img src="banks/bbva.svg" alt="BBVA" style="--h: 20px" /></li>
+              <li>
+                <img src="banks/paypal.svg" alt="PayPal" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/revolut.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/n26.svg" alt="" style="--h: 30px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/wise.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/ing.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bbva.svg" alt="" style="--h: 20px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/paypal.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/revolut.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/n26.svg" alt="" style="--h: 30px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/wise.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/ing.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bbva.svg" alt="" style="--h: 20px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/paypal.svg" alt="" style="--h: 28px" />
+              </li>
+            </ul>
+            <ul class="track" aria-hidden="true">
+              <li aria-hidden="true">
+                <img src="banks/revolut.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/n26.svg" alt="" style="--h: 30px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/wise.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/ing.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bbva.svg" alt="" style="--h: 20px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/paypal.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/revolut.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/n26.svg" alt="" style="--h: 30px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/wise.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/ing.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bbva.svg" alt="" style="--h: 20px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/paypal.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/revolut.svg" alt="" style="--h: 26px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/n26.svg" alt="" style="--h: 30px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/wise.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/ing.svg" alt="" style="--h: 28px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/bbva.svg" alt="" style="--h: 20px" />
+              </li>
+              <li aria-hidden="true">
+                <img src="banks/paypal.svg" alt="" style="--h: 28px" />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="wrap marquee-note reveal">
+          Plus dozens more in Portugal and across Europe.
+          <a
+            href="https://enablebanking.com/open-banking-apis?country=PT"
+            rel="noopener"
+            >See every supported bank</a
           >
-            <div class="screen" aria-hidden="true">
-              <div class="status"><span>9:41</span><i></i></div>
-              <div class="appbar">
-                <svg class="i"><use href="#i-chevron-left" /></svg>Review
-              </div>
-              <div class="body">
-                <div>
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: space-between;
-                      margin-bottom: 6px;
-                    "
-                  >
-                    <span class="meta">1 of 4</span
-                    ><span class="meta">3 left</span>
-                  </div>
-                  <div
-                    class="bar"
-                    style="
-                      --c: var(--primary);
-                      --v: 0.25;
-                      background: var(--hairline);
-                    "
-                  >
-                    <b></b>
-                  </div>
-                </div>
+        </p>
 
-                <div class="surface pad review-card">
-                  <div class="src">
-                    <svg class="i"><use href="#i-landmark" /></svg>From your
-                    bank · Main account
+        <div class="wrap chapter">
+          <div class="copy reveal">
+            <ul class="points">
+              <li>
+                <span class="glyph" style="--c: var(--ring-cyan)"
+                  ><svg class="i"><use href="#i-refresh-cw" /></svg
+                ></span>
+                <span
+                  ><b>Syncs on its own</b>New transactions come in about twice a
+                  day in the background and whenever you open the app, so
+                  balances stay current without importing anything. Your bank
+                  asks you to confirm access every few months.</span
+                >
+              </li>
+              <li>
+                <span class="glyph" style="--c: var(--ring-green)"
+                  ><svg class="i"><use href="#i-key-round" /></svg
+                ></span>
+                <span
+                  ><b>Your bank key never leaves the phone</b>You log in on your
+                  bank&#8217;s own app or site. The private key that reads your
+                  accounts stays in the phone&#8217;s secure storage, so the
+                  login is useless to anyone else.</span
+                >
+              </li>
+              <li>
+                <span class="glyph" style="--c: var(--ring-amber)"
+                  ><svg class="i"><use href="#i-inbox" /></svg
+                ></span>
+                <span
+                  ><b>One inbox for what needs you</b>New bank records land in
+                  the review inbox, next to captured payments and refunds that
+                  still need to be matched. One tap each and you are done.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="stage reveal" style="--stage: var(--tint-cyan)">
+            <div
+              class="phone"
+              role="img"
+              aria-label="The review inbox asking for the category of a 38,72 euro bank transaction from Continente"
+            >
+              <div class="screen" aria-hidden="true">
+                <div class="status"><span>9:41</span><i></i></div>
+                <div class="appbar">
+                  <svg class="i"><use href="#i-chevron-left" /></svg>Review
+                </div>
+                <div class="body">
+                  <div>
+                    <div
+                      style="
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 6px;
+                      "
+                    >
+                      <span class="meta">1 of 4</span
+                      ><span class="meta">3 left</span>
+                    </div>
+                    <div
+                      class="bar"
+                      style="
+                        --c: var(--primary);
+                        --v: 0.25;
+                        background: var(--hairline);
+                      "
+                    >
+                      <b></b>
+                    </div>
                   </div>
-                  <div class="who">
-                    <b>Continente</b><span class="amt out">−38,72 €</span>
+
+                  <div class="surface pad review-card">
+                    <div class="src">
+                      <svg class="i"><use href="#i-landmark" /></svg>From your
+                      bank · Main account
+                    </div>
+                    <div class="who">
+                      <b>Continente</b><span class="amt out">−38,72 €</span>
+                    </div>
+                    <div class="meta">Sat, 26 Sept</div>
+                    <div class="q">Which category?</div>
+                    <div class="picks">
+                      <span class="on"
+                        ><span class="cat" style="--c: #22c55e"
+                          ><svg class="i">
+                            <use href="#i-shopping-cart" /></svg></span
+                        >Groceries</span
+                      ><span
+                        ><span class="cat" style="--c: #ec4899"
+                          ><svg class="i">
+                            <use href="#i-shopping-bag" /></svg></span
+                        >Shopping</span
+                      ><span
+                        ><span class="cat" style="--c: #6366f1"
+                          ><svg class="i"><use href="#i-house" /></svg></span
+                        >Home</span
+                      >
+                    </div>
                   </div>
-                  <div class="meta">Sat, 26 Sept</div>
-                  <div class="suggest">
-                    <span class="cat" style="--c: #22c55e"
-                      ><svg class="i"><use href="#i-shopping-cart" /></svg
-                    ></span>
-                    <div class="grow">
-                      <div style="font-weight: 600">Groceries</div>
-                      <div class="meta">
-                        <svg class="i"><use href="#i-sparkles" /></svg>Suggested
+
+                  <div class="cap" style="margin-top: 4px">Up next</div>
+                  <div class="surface">
+                    <div class="row">
+                      <span class="cat" style="--c: #78716c"
+                        ><svg class="i"><use href="#i-car" /></svg
+                      ></span>
+                      <div class="grow">
+                        <div class="name">Uber</div>
+                        <div class="meta">To categorise</div>
                       </div>
+                      <span class="amt out">−8,90 €</span>
+                    </div>
+                    <div class="row">
+                      <span class="cat" style="--c: #f59e0b"
+                        ><svg class="i"><use href="#i-hand-coins" /></svg
+                      ></span>
+                      <div class="grow">
+                        <div class="name">Ana Costa</div>
+                        <div class="meta">Which expense does it pay back?</div>
+                      </div>
+                      <span class="amt in">22,50 €</span>
+                    </div>
+                    <div class="row">
+                      <span class="cat" style="--c: #f59e0b"
+                        ><svg class="i"><use href="#i-fuel" /></svg
+                      ></span>
+                      <div class="grow">
+                        <div class="name">Galp</div>
+                        <div class="meta">Captured payment</div>
+                      </div>
+                      <span class="amt out">−45,00 €</span>
                     </div>
                   </div>
-                  <div class="two">
-                    <span class="btn">Use Groceries</span>
-                    <span class="btn ghost">Pick another</span>
-                  </div>
-                </div>
 
-                <div class="cap" style="margin-top: 4px">Up next</div>
-                <div class="surface">
-                  <div class="row">
-                    <span class="cat" style="--c: #78716c"
-                      ><svg class="i"><use href="#i-car" /></svg
-                    ></span>
-                    <div class="grow">
-                      <div class="name">Uber</div>
-                      <div class="meta">To categorise</div>
-                    </div>
-                    <span class="amt out">−8,90 €</span>
+                  <div style="flex: 1"></div>
+                  <div class="surface synced">
+                    <svg class="i"><use href="#i-refresh-cw" /></svg>Enable
+                    Banking · synced 2 minutes ago
                   </div>
-                  <div class="row">
-                    <span class="cat" style="--c: #f59e0b"
-                      ><svg class="i"><use href="#i-hand-coins" /></svg
-                    ></span>
-                    <div class="grow">
-                      <div class="name">Ana Costa</div>
-                      <div class="meta">Which expense does it pay back?</div>
-                    </div>
-                    <span class="amt in">22,50 €</span>
-                  </div>
-                  <div class="row">
-                    <span class="cat" style="--c: #f59e0b"
-                      ><svg class="i"><use href="#i-fuel" /></svg
-                    ></span>
-                    <div class="grow">
-                      <div class="name">Galp</div>
-                      <div class="meta">Captured payment</div>
-                    </div>
-                    <span class="amt out">−45,00 €</span>
-                  </div>
-                </div>
-
-                <div style="flex: 1"></div>
-                <div class="surface synced">
-                  <svg class="i"><use href="#i-refresh-cw" /></svg>Enable
-                  Banking · synced 2 minutes ago
                 </div>
               </div>
             </div>
@@ -1079,8 +1339,128 @@
         </div>
       </section>
 
+      <section class="wrap chapter flip">
+        <div class="copy reveal">
+          <h2 class="title">Categories that sort themselves.</h2>
+          <p>
+            Your rules run first. For whatever is left, the AI model you choose
+            suggests a category: Anthropic, OpenAI or Google, with your own key.
+            The request goes straight from your phone to the provider.
+          </p>
+          <ul class="points">
+            <li>
+              <span class="glyph" style="--c: var(--ring-cyan)"
+                ><svg class="i"><use href="#i-eye" /></svg
+              ></span>
+              <span
+                ><b>You see what is sent</b>Before anything leaves, the app
+                lists it: the merchant and whether money went in or out, plus
+                your category names. Never an amount, date, account, note or
+                label.</span
+              >
+            </li>
+            <li>
+              <span class="glyph" style="--c: var(--ring-violet)"
+                ><svg class="i"><use href="#i-check" /></svg
+              ></span>
+              <span
+                ><b>You decide</b>Suggestions wait for you to apply or dismiss
+                them. Turn on Automatic and they are filed as new bank records
+                arrive. Unsure answers are never applied.</span
+              >
+            </li>
+            <li>
+              <span class="glyph" style="--c: var(--ring-green)"
+                ><svg class="i"><use href="#i-key-round" /></svg
+              ></span>
+              <span
+                ><b>Your key stays on the phone</b>The API key lives in the
+                phone&#8217;s secure storage and never goes into a backup.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="stage record-stage reveal"
+          style="--stage: var(--tint-amber)"
+        >
+          <div
+            class="phone"
+            role="img"
+            aria-label="The AI categorisation screen listing exactly what would be sent: three merchants and whether money went in or out"
+          >
+            <div class="screen" aria-hidden="true">
+              <div class="status"><span>9:41</span><i></i></div>
+              <div class="appbar">
+                <svg class="i"><use href="#i-chevron-left" /></svg>Categorise
+                with AI
+              </div>
+              <div class="body">
+                <div class="meta">
+                  Your rules run first. Only the rest is sent to your provider.
+                </div>
+                <div class="surface pad sent">
+                  <div class="st">What would be sent</div>
+                  <div>3 of 3 records would be sent.</div>
+                  <div class="meta">
+                    Merchant and money in or out, plus your category names. No
+                    amount, date, account, note or label.
+                  </div>
+                  <div class="lines">
+                    <span>Continente · money out</span>
+                    <span>Uber · money out</span>
+                    <span>Ana Costa · money in</span>
+                  </div>
+                </div>
+                <div class="surface">
+                  <div class="row">
+                    <span class="cat" style="--c: #f97316"
+                      ><svg class="i"><use href="#i-sparkles" /></svg
+                    ></span>
+                    <div class="grow">
+                      <div class="name">Anthropic</div>
+                      <div class="meta">Provider</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <span class="cat" style="--c: var(--primary)"
+                      ><svg class="i"><use href="#i-key-round" /></svg
+                    ></span>
+                    <div class="grow">
+                      <div class="name">API key</div>
+                      <div class="meta">Saved on this phone</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="flex: 1"></div>
+                <div class="btn lg">Categorise now</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget suggestion" aria-hidden="true">
+            <div class="meta">Suggestion</div>
+            <div class="row">
+              <span class="cat" style="--c: #22c55e"
+                ><svg class="i"><use href="#i-shopping-cart" /></svg
+              ></span>
+              <div class="grow">
+                <div class="name">Continente</div>
+                <div class="meta">Groceries</div>
+              </div>
+              <span class="amt out">−38,72 €</span>
+            </div>
+            <div class="two">
+              <span class="btn">Apply</span>
+              <span class="btn ghost">Dismiss</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="wrap stats">
-        <div class="stats-head">
+        <div class="split-head">
           <h2 class="title reveal">See where the money went.</h2>
           <div class="copy reveal" style="--d: 100ms">
             <p>

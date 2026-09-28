@@ -6,6 +6,8 @@ https://pedrojfs17.github.io/money-manager-app/.
 - `index.html`: the landing page.
 - `privacy.html`: the privacy policy, also linked from the Google OAuth consent screen.
 - `bank-redirect/`: the Enable Banking redirect URL.
+- `banks/`: bank logos shown on the landing page, from Wikimedia Commons and Simple Icons. Each
+  logo belongs to its bank.
 
 ## Bank redirect
 

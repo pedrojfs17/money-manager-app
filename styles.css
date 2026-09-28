@@ -1096,18 +1096,18 @@ svg.i {
   font-weight: 700;
 }
 
-.paycard .q {
+.q {
   margin: 14px 0 8px;
   font-weight: 600;
 }
 
-.paycard .picks {
+.picks {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
-.paycard .picks span {
+.picks span {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1118,13 +1118,13 @@ svg.i {
   font-weight: 500;
 }
 
-.paycard .picks .cat {
+.picks .cat {
   width: 24px;
   height: 24px;
   font-size: 12px;
 }
 
-.paycard .picks .on {
+.picks .on {
   background: var(--primary-soft);
   color: var(--primary-deep);
   box-shadow: 0 0 0 1.5px var(--primary) inset;
@@ -1169,7 +1169,149 @@ svg.i {
   }
 }
 
+/* Banks */
+
+.banks {
+  padding-top: clamp(3.5rem, 8vw, 7rem);
+}
+
+.banks .chapter {
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.marquee {
+  display: grid;
+  gap: 14px;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+.lane {
+  display: flex;
+  width: max-content;
+}
+
+.track {
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 0 14px 0 0;
+  list-style: none;
+}
+
+/* Logos keep their own colours, so the tiles stay light in dark mode too. */
+.track li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  height: 76px;
+  padding: 0 30px;
+  border-radius: 20px;
+  background: oklch(0.995 0.002 160);
+  box-shadow: var(--shadow-surface);
+  color: oklch(0.45 0.13 250);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.track img {
+  display: block;
+  width: auto;
+  height: var(--h, 24px);
+}
+
+@media (max-width: 40rem) {
+  .track li {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .track img {
+    height: calc(var(--h, 24px) * 0.8);
+  }
+}
+
+.marquee-note {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  text-align: center;
+  color: var(--ink-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lane {
+    animation: marquee 70s linear infinite;
+  }
+
+  .lane.reverse {
+    animation-direction: reverse;
+  }
+
+  .marquee:hover .lane {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Review */
+
+.screen .q {
+  margin: 12px 0 6px;
+  font-size: 12px;
+}
+
+.screen .picks span {
+  gap: 4px;
+  padding: 3px 8px 3px 3px;
+  font-size: 10.5px;
+}
+
+.screen .picks .cat {
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+}
+
+/* AI */
+
+.sent {
+  display: grid;
+  gap: 6px;
+}
+
+.sent .lines {
+  display: grid;
+  gap: 4px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink-faint);
+  font-size: 11px;
+}
+
+.suggestion {
+  left: auto;
+  right: -2.5rem;
+  bottom: 9rem;
+  width: 260px;
+}
+
+.suggestion .row {
+  padding: 8px 0 12px;
+}
 
 .review-card .src {
   display: flex;
@@ -1242,14 +1384,14 @@ svg.i {
   padding-block: clamp(3.5rem, 8vw, 7rem);
 }
 
-.stats-head {
+.split-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 5vw, 6rem);
   align-items: end;
 }
 
-.stats-head .copy p {
+.split-head .copy p {
   margin: 0;
 }
 
@@ -1383,7 +1525,7 @@ svg.i {
 }
 
 @media (max-width: 56rem) {
-  .stats-head,
+  .split-head,
   .board .surface {
     grid-template-columns: 1fr;
   }
